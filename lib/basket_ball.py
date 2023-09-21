@@ -238,5 +238,16 @@ def player_stats(player_name):
     return(retrieve_all_players()[player_name])
 
 def average_rebounds_by_shoe_brand():
-    pass
+    shoes = {}
+    players = retrieve_all_players()
+    for player in players:
+        brand = players[player]["shoe_brand"]
+        rebounds = players[player]["rebounds_per_game"]
+        if (brand in shoes):
+            shoes[brand].append(rebounds)
+        else:
+            shoes[brand] = [rebounds]
+    for brand in shoes:
+        avg = sum(shoes[brand]) / len(shoes[brand])
+        print(f"{brand}: ", "{0:.2f}".format(avg))
 

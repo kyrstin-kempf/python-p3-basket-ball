@@ -234,8 +234,8 @@ def player_numbers(team_name):
                 player_numbers.append(player["number"])
     return player_numbers
 
-def player_stats():
-    pass
+def player_stats(player_name):
+    return(retrieve_all_players()[player_name])
 
 def average_rebounds_by_shoe_brand():
     pass
